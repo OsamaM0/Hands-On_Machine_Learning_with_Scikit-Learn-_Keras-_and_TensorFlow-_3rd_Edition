@@ -2,7 +2,7 @@
 
 ---
 
-### **In this chapter, we will:**
+**In this chapter, we will:**
 
 - Define what is machine learning (ML)?
 - Why we should use ML?
@@ -11,7 +11,6 @@
     - Training supervision
     - Online versus batch learning
     - Instance-based versus model-based learning
-- Go over a few practical examples.
 - Talk about common challenges when using ML
 
 ---
@@ -150,7 +149,430 @@ and their targets (i.e., their prices).
 
 ### 2. unsupervised learning
 
-> the system tries to learn without a teacher.
+> the system tries to learn without a teacher & find connections without your help
 > 
 
-**Differences between Supervise & unsupervised**
+```mermaid
+graph TD
+  Unsupervised--> Clustring 
+  Unsupervised--> Anomaly_Detecting 
+  Unsupervised--> dimensionality_reductoin
+  Unsupervised--> Association_rule
+
+  ****Clustring --> K-mean
+  Clustring --> DBSCAN
+  Clustring --> Hirerchical_Cluster
+
+  Anomaly_Detecting --> one-class_SVM
+  Anomaly_Detecting --> Isolation_Forest
+  Anomaly_Detecting --> Auto-encoders
+
+	dimensionality_reductoin --> PCA
+	dimensionality_reductoin --> T-SNE
+	dimensionality_reductoin --> Autoencoders
+	dimensionality_reductoin --> LLE
+	dimensionality_reductoin --> Kernal_PCA
+
+	Association_rule --> Apriori 
+	Association_rule --> Eclat
+
+	PCA   --> Visualization_algortihalgorithm
+	T-SNE --> Visualization_algortihalgorithm  
+	Hirerchical_Cluster--> Visualization_algortihalgorithm                        
+```
+
+*Clustering example* 
+
+The Visitors Clustering 
+
+![Unlabeled Training set of visitors ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%202.png)
+
+Unlabeled Training set of visitors 
+
+![Clustering the visitors ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%203.png)
+
+Clustering the visitors 
+
+*Visualization algorithm example* 
+
+you feed them a lot of complex and unlabeled data, and they output a 2D or 3D representation 
+
+![Example of a t-SNE visualization highlighting semantic clusters2](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%204.png)
+
+Example of a t-SNE visualization highlighting semantic clusters2
+
+*Dimensionality reduction example* 
+
+car’s mileage may be strongly correlated with its age,
+so the dimensionality reduction algorithm will merge them into one feature the car’s wear and tear.
+this is called —> feature extraction 
+
+> 💡 **Note**  
+      reduce the number of dimensions in your training data using a 
+      dimensionality reduction algorithm before you feed it to another machine 
+      learning algorithm 
+      → It will run much faster
+      → the data will take up less disk and memory space
+      → perform better
+> 
+
+*Anomaly detection*
+
+detect unusual credit card transaction to prevent fraud
+
+![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%205.png)
+
+*Association rule learning* 
+
+suppose you own a supermarket. Running an association rule
+on your sales logs may reveal that people who purchase barbecue sauce & potato
+chips also tend to buy steak.
+Thus, you may want to place these items close to one another.
+
+### Semi-supervised
+
+> algorithms can deal with data that’s partially labeled
+> 
+
+![circles → unlabeled data
+Triangles & Squires → labeled data 
+you can clustering unlabeled “circles” according to labeled data  ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%206.png)
+
+circles → unlabeled data
+Triangles & Squires → labeled data 
+you can clustering unlabeled “circles” according to labeled data  
+
+*google photos* 
+
+first clusters peoples with same shapes 
+then if you labeled any one of the photo it will give name to the same persons
+
+### Reinforcement Learning
+
+> called an agent in the context 
+1- can observe the environment
+2- select action 
+3- preform actions 
+4- get rewards in return 
+
+It must then learn by itself what is the best strategy, called a policy, to get the most reward over time
+> 
+> 
+> A policy defines what action the agent should choose
+> when it is in a given situation
+> 
+
+![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%207.png)
+
+Summarize The previous Model Type
+
+![https://cdn.ttgtmedia.com/rms/onlineImages/enterpriseai-machine_learning_models_cheat_sheet-f.png](https://cdn.ttgtmedia.com/rms/onlineImages/enterpriseai-machine_learning_models_cheat_sheet-f.png)
+
+## Batch Vs Online learning
+
+### **Batch Learnings**
+
+- trained using all the available data (offline)
+- Launched into production & runs without learning anymore
+
+**Pross:** 
+
+- easier to implement
+- Useful for
+    - system that not change rapidly
+    - have a lot of resources
+
+************cons:************ 
+
+- trained using all the available data (not learning incrementally)
+- so, it takes a lot of time and computing resources
+- model’s performance tends to decay slowly over time, *cause world evolve*
+    - solution of this point
+        - train a new version of the system from scratch on the full dataset new & old
+        - replace the old model with the new one.
+
+### Online learning
+
+- *Trained incrementally* by feeding data instances sequentially (individually or small groups ”mini-batches”
+- Each learning step is fast and cheap → system learn on fly as data arrives
+
+**************Pros:**************
+
+- useful for
+    - system that change extremally rapidly
+    - have limited in computing resources
+    - out of core learning: *deal with huge dataset that can’t fit main memory*
+        - loads part & run training steps (repeat until done)
+
+**********cons:********** 
+
+- hard to implement
+- Hard to choose good data, and if the system has bad data will performances decline
+    - Note: bad data depend on data quality & Learning rate
+
+> 💡 Learning rate 
+      parameter determine how fast system should adapt to changing the data 
+      → high learning rate: system rapidly adapt, but quickly forget the old data 
+      → low learning rate:   system small adapt, but system slightly adapt to new data
+> 
+
+## how generalize (Instance-based Vs Model-based Learning )
+
+### Instance-based **Learning**
+
+> system learns the examples by heart
+then generalizes to new cases by using a similarity measure to compare them to the learned examples
+> 
+
+![new instance would be classified as a triangle because the majority of the most similar instances belong to that class.](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%208.png)
+
+new instance would be classified as a triangle because the majority of the most similar instances belong to that class.
+
+as you see it start from the heart and generalize new case around it 
+
+Example: 
+
+- K-Nearest Neighbors
+
+### model-based
+
+> build a model of these examples and then use that model to make predictions.
+> 
+
+![here model is trained and understand the data so it can easily make predictions ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%209.png)
+
+here model is trained and understand the data so it can easily make predictions 
+
+as you see it learned weights value & base value after trained data 
+
+Example: 
+
+- Support Victor Machine SVM
+
+### Code implement for Model & Instance based
+
+******************************************How to build a model****************************************** 
+
+- Studied the data
+- select the model
+- Train the model
+- apply the model to predict
+
+**1- Studied the data set** 
+
+- import the library's
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+```
+
+- Download data
+
+```python
+data_root = "https://github.com/ageron/data/raw/main/"
+```
+
+- prepare the data
+
+```python
+lifesat = pd.read_csv(data_root + "lifesat/lifesat.csv")
+X = lifesat[["GDP per capita (USD)"]].values
+y = lifesat[["Life satisfaction"]].values
+```
+
+- Visualize the data
+
+```python
+lifesat.plot(kind='scatter', grid=True,
+x="GDP per capita (USD)", y="Life satisfaction")
+plt.axis([23_500, 62_500, 4, 9])
+plt.show()
+```
+
+![after study the dataset it tend to be linear ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2010.png)
+
+after study the dataset it tend to be linear 
+
+**2- Select the model** 
+
+- we select the ***linear regression*** model case model based
+    
+    ```python
+    from sklearn.linear_model import LinearRegression
+    model = LinearRegression()
+    ```
+    
+- and select the K-mean model case model based
+    
+    ```python
+    from sklearn.neighbors import KNeighborsRegressor
+    model = KNeighborsRegressor(n_neighbors=3)
+    ```
+    
+
+**3- Train the model** 
+
+```python
+model.fit(X, y)
+```
+
+**4- Apply the model to predict**
+
+```python
+X_new =  list(range(23_500, 62_500,1000)) 
+Y_new = [model.predict([[i]])[0][0] for i in X_new ]
+```
+
+```python
+# Visualize the data
+lifesat.plot(kind='scatter', grid=True,
+x="GDP per capita (USD)", y="Life satisfaction")
+plt.axis([23_500, 62_500, 4, 9])
+plt.plot(X_new, Y_new, color ="r")
+plt.show()
+```
+
+![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2011.png)
+
+# Main Challenges of Machine Learning
+
+your main task is to select a model and train it on some data
+
+## 1- Training Data Problems
+
+### **Insufficient quantity of training data**
+
+- Simple problems → Thousand of examples
+- Complex problems → Millions of examples (unless you reuse parts of existing model
+
+### Non representative Training Data
+
+### Poor quality data
+
+    data full of errors, outliers & noise 
+
+Solution:
+
+- Clearly outliers → discard them or fix error manually
+- Missing few features →
+    - ignore the attributes that missing
+    - or fill in them
+    - or train one model with this features and one model without it
+
+### Irrelevant Features
+
+system will only be capable of learning if the training data contains enough relevant features and not too many irrelevant ones.
+
+***feature engineering*** (coming up with good set of features to train)
+
+- ******************************************************Feature selection →****************************************************** select the most useful features to train
+- *********************************************************Feature extraction →********************************************************* combining existing features to produce a more useful one(dim-reduction)
+- ***Create new Features***
+
+## 2- Training Algorithm Problem
+
+### Overfitting
+
+> model performs well on the training data, but it does not generalize well.
+> 
+
+**Overfitting happens when the model is** 
+
+- too complex relative to the amount and noisiness of the training data.
+
+**Solutions:**
+
+- **Simplify the model → select one with fewer parameters**
+    - linear model rather than a high-degree polynomial
+    model),
+    - reducing the number of attributes in the training
+    data, or by constraining the model.
+- **Gather more training data.**
+- **Reduce the noise in the training data**
+    - fix data errors
+    - remove outliers
+- ******************************Regularization******************************
+    
+    If we take the example of a single linear regression model $f = a*x + b$, it has two degrees of freedom (2 parameters). 
+    
+    - If we let the algorithm change one parameter's values freely
+    - but have a set interval around parameter 2, it will have between 1 and 2 degree of freedom.
+    
+    We would want a good balance between keeping the model as simple as possible while giving the model the ability to capture out of training data patterns.
+    
+    ***model's hyperparameters*** 
+    which describe how the model should learn & this can control  Regularization
+    
+    ![doted  → prediction for circles (without regularization)
+    dashed →predictions for circles (with  regularization)
+    Soled   → prediction of all data (circles &squares)](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2012.png)
+    
+    doted  → prediction for circles (without regularization)
+    dashed →predictions for circles (with  regularization)
+    Soled   → prediction of all data (circles &squares)
+    
+    ***doted line*** best for predict current data (circle), bad at other data squares → overfitting
+    
+    ***dashed line** not god as doted in* predict current data (circle), but is good at other data squares & it similar to solid line so   → no overfitting in this line 
+    
+
+**Solutions:**
+
+### Underfitting
+
+> model is too simple to learn the underlying structure of the data.
+> 
+- **Select a more powerful model, with more parameters.**
+- **Feed better features to the learning algorithm (feature engineering).**
+- **Reduce the constraints on the model**
+    - reducing the regularization hyperparameter
+
+**your model needs to be neither too simple (in which case it will underfit) nor too complex (in which case it will overfit).**
+
+### Testing & Validating
+
+evaluate model by splitting the data into two sets: 
+
+- **training** data sets. → take 80% of the whole dataset
+- **testing** data sets → take 20% of the whole dataset
+
+We only care about ***`out-of-training error`, or `generalization error`***, as it is representative of the model's performance in a production environment.
+
+> ***generalization error***  it is error from the test set 
+***********Overfitting*********** have low Training error & high *generalization* error
+> 
+
+**Hyperparameter Tuning & Model Selection** 
+
+If we fine-tune regularization parameters on the test set, we are sort of overfitting to it, so we need another data set for hyper-parameter tuning, this data set is usually called the **`validation set`**.  `development set`  or `dev set`
+The validation set should be set aside from the training set. After conducting hyper-parameter tuning on using the validation set, we train the model on the full training set (with validation) & evaluate on the test set.
+
+![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2013.png)
+
+**Data Mismatch**
+
+if the algorithm is performing poorly on the validation set, we won't know if the cause is
+
+- overfitting
+- or if the training set isn't good for the task at hand
+
+Solution
+
+1- introduce another validation set, called 'train-dev' set. After training, we will 
+     validate the model on both `train-dev`  & validation sets.
+
+- If evaluation is **good** on `train-dev`  & **bad** on `validation`
+→ this means that the data is not good for the task at hand. (data proplem)
+- If evaluation is bad on `train-dev`  & bad on `validation`
+→  this means overfitting or the algorithm/overall data is not good.(model proplem)
+
+We should think of a model as a simplified version of the observations. 
+This simplification is meant to discard noise and capture generalizable useful patterns in the training and testing datasets. To decide what information to discard and what to keep, you must make assumptions. For example, a linear model assumes that the relation between the input & output is fundamentally linear & the distance between the model line and the observations is essentially **noise**.
+
+If we make no assumptions about the data, than there is no need to prefer one model over another. This is the point behind the "no free lunch theorem", which states the following:
+
+> [David Wolpert & William Macready] Any two optimization algorithms are equivalent when their performance is averaged across all possible problems
+>
