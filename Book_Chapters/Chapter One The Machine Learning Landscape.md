@@ -130,7 +130,9 @@ The spam filter
 it is trained with many example emails along with their class (spam or ham),
 and it must learn how to classify new emails.
 
-![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_5.png">
+</p>
 
 *Regression example* 
 
@@ -138,7 +140,9 @@ The price of a car
 given a set of features (mileage, age, brand, etc.). To train the system, you need to give it many examples of cars, including both their features 
 and their targets (i.e., their prices).
 
-![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%201.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_6.png">
+</p>
 
 > 💡 **Note**  
       Label → more common in classification
@@ -185,11 +189,18 @@ graph TD
 
 The Visitors Clustering 
 
-![Unlabeled Training set of visitors ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%202.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_7.png" alt = "Training set of visitors">
+</p>
+
+
 
 Unlabeled Training set of visitors 
 
-![Clustering the visitors ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%203.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_8.png" alt = "Clustering the visitors ">
+</p>
+
 
 Clustering the visitors 
 
@@ -197,7 +208,9 @@ Clustering the visitors
 
 you feed them a lot of complex and unlabeled data, and they output a 2D or 3D representation 
 
-![Example of a t-SNE visualization highlighting semantic clusters2](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%204.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_9.png" alt = "Example of a t-SNE visualization highlighting semantic clusters2">
+</p>
 
 Example of a t-SNE visualization highlighting semantic clusters2
 
@@ -220,7 +233,9 @@ this is called —> feature extraction
 
 detect unusual credit card transaction to prevent fraud
 
-![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%205.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_10.png" alt = "">
+</p>
 
 *Association rule learning* 
 
@@ -234,9 +249,11 @@ Thus, you may want to place these items close to one another.
 > algorithms can deal with data that’s partially labeled
 > 
 
-![circles → unlabeled data
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_11.png" alt = "circles → unlabeled data
 Triangles & Squires → labeled data 
-you can clustering unlabeled “circles” according to labeled data  ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%206.png)
+you can clustering unlabeled “circles” according to labeled data  ">
+</p>
 
 circles → unlabeled data
 Triangles & Squires → labeled data 
@@ -262,7 +279,10 @@ It must then learn by itself what is the best strategy, called a policy, to get 
 > when it is in a given situation
 > 
 
-![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%207.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_13.png" alt = "">
+</p>
+
 
 Summarize The previous Model Type
 
@@ -324,7 +344,10 @@ Summarize The previous Model Type
 then generalizes to new cases by using a similarity measure to compare them to the learned examples
 > 
 
-![new instance would be classified as a triangle because the majority of the most similar instances belong to that class.](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%208.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_16.png" alt = "new instance would be classified as a triangle because the majority of the most similar instances belong to that class. ">
+</p>
+
 
 new instance would be classified as a triangle because the majority of the most similar instances belong to that class.
 
@@ -339,7 +362,11 @@ Example:
 > build a model of these examples and then use that model to make predictions.
 > 
 
-![here model is trained and understand the data so it can easily make predictions ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%209.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_17.png" alt = "here model is trained and understand the data so it can easily make predictions  ">
+</p>
+
+
 
 here model is trained and understand the data so it can easily make predictions 
 
@@ -392,7 +419,11 @@ plt.axis([23_500, 62_500, 4, 9])
 plt.show()
 ```
 
-![after study the dataset it tend to be linear ](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2010.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/Ch1_1.png" alt = "after study the dataset it tend to be linear   ">
+</p>
+
+
 
 after study the dataset it tend to be linear 
 
@@ -435,7 +466,12 @@ plt.plot(X_new, Y_new, color ="r")
 plt.show()
 ```
 
-![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2011.png)
+
+<p align="center">
+  <img width="430" height="220" src="/Image/Ch1_2.png" alt = "after study the dataset it tend to be linear   ">
+</p>
+
+
 
 # Main Challenges of Machine Learning
 
@@ -505,10 +541,13 @@ system will only be capable of learning if the training data contains enough rel
     
     ***model's hyperparameters*** 
     which describe how the model should learn & this can control  Regularization
-    
-    ![doted  → prediction for circles (without regularization)
+    <p align="center">
+  <img width="430" height="220" src="/Image/fig1_24.png" alt = "doted  → prediction for circles (without regularization)
     dashed →predictions for circles (with  regularization)
-    Soled   → prediction of all data (circles &squares)](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2012.png)
+    Soled   → prediction of all data (circles &squares)">
+</p>
+
+
     
     doted  → prediction for circles (without regularization)
     dashed →predictions for circles (with  regularization)
@@ -550,7 +589,11 @@ We only care about ***`out-of-training error`, or `generalization error`***, as 
 If we fine-tune regularization parameters on the test set, we are sort of overfitting to it, so we need another data set for hyper-parameter tuning, this data set is usually called the **`validation set`**.  `development set`  or `dev set`
 The validation set should be set aside from the training set. After conducting hyper-parameter tuning on using the validation set, we train the model on the full training set (with validation) & evaluate on the test set.
 
-![Untitled](Chapter%20One%20The%20Machine%20Learning%20Landscape%20e8786d964e9c4028aa42fb8f27ab96dd/Untitled%2013.png)
+<p align="center">
+  <img width="430" height="220" src="/Image/fig1_25.png" alt = "">
+</p>
+
+
 
 **Data Mismatch**
 
